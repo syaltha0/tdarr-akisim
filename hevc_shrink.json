@@ -1,0 +1,1583 @@
+{
+  "_id": "bcDpKUcN_",
+  "name": "HEVC Attempt to Shrink Big Files",
+  "description": "HEVC Attempt to Shrink Big Files",
+  "tags": "",
+  "flowPlugins": [
+    {
+      "name": "Input File",
+      "sourceRepo": "Community",
+      "pluginName": "inputFile",
+      "version": "1.0.0",
+      "inputsDB": {
+        "pauseNodeIfAccessChecksFail": "false",
+        "fileAccessChecks": "true"
+      },
+      "id": "pE6rU7gkW",
+      "position": {
+        "x": 382.18371438085205,
+        "y": -604.0026213976864
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Check if hevc",
+      "sourceRepo": "Community",
+      "pluginName": "checkVideoCodec",
+      "version": "1.0.0",
+      "id": "91b7IrsEc",
+      "position": {
+        "x": 285.4403667747039,
+        "y": -390.9062354509986
+      },
+      "fpEnabled": true,
+      "inputsDB": {
+        "codec": "hevc"
+      }
+    },
+    {
+      "name": "Execute",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandExecute",
+      "version": "1.0.0",
+      "id": "450g167D8",
+      "position": {
+        "x": 907.5278203607159,
+        "y": 599.0788945363702
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Set Video Encoder to HEVC (Quality: 23)",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandSetVideoEncoder",
+      "version": "1.0.0",
+      "id": "8B_6pRd_U",
+      "position": {
+        "x": 906.7304301510171,
+        "y": 272.34694098390236
+      },
+      "fpEnabled": true,
+      "inputsDB": {
+        "outputCodec": "hevc_nvenc",
+        "ffmpegPresetEnabled": "true",
+        "ffmpegPreset": "p7",
+        "ffmpegQualityEnabled": "true",
+        "ffmpegQuality": "22",
+        "ffmpegExtraOptionsEnabled": "true",
+        "ffmpegExtraOptions": "-rc:v vbr -multipass 2pass -rc-lookahead 32 -spatial_aq 1 -temporal_aq 1 -max_muxing_queue_size 1024"
+      }
+    },
+    {
+      "name": "Replace Original File",
+      "sourceRepo": "Community",
+      "pluginName": "replaceOriginalFile",
+      "version": "1.0.0",
+      "id": "4fkfOyR3l",
+      "position": {
+        "x": 431.1318624097494,
+        "y": 975.0571478736945
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Set Container to MKV",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandSetContainer",
+      "version": "1.0.0",
+      "id": "TtKXi3Q7h",
+      "position": {
+        "x": 907.4992911115876,
+        "y": 504.1021472534984
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Begin Command",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandStart",
+      "version": "1.0.0",
+      "id": "6LclYP06x",
+      "position": {
+        "x": 710.5887786073741,
+        "y": 221.82415479246788
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "10 Bit Video",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommand10BitVideo",
+      "version": "1.0.0",
+      "id": "F7YfZS7C0",
+      "position": {
+        "x": 907.1741337633255,
+        "y": 340.0140115201107
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Check Video Resolution",
+      "sourceRepo": "Community",
+      "pluginName": "checkVideoResolution",
+      "version": "1.0.0",
+      "id": "rzKOAWwbm",
+      "position": {
+        "x": 260.09356598380197,
+        "y": -98.09738352678096
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Compare File Size",
+      "sourceRepo": "Community",
+      "pluginName": "compareFileSize",
+      "version": "1.0.0",
+      "id": "joMr51cZt",
+      "position": {
+        "x": 615.6763778979414,
+        "y": 682.9651553532955
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Delete File",
+      "sourceRepo": "Community",
+      "pluginName": "deleteFile",
+      "version": "1.0.0",
+      "id": "t8zcq1B2i",
+      "position": {
+        "x": 748.5311668296897,
+        "y": 818.8508775316507
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Check if av1",
+      "sourceRepo": "Community",
+      "pluginName": "checkVideoCodec",
+      "version": "1.0.0",
+      "inputsDB": {
+        "codec": "av1"
+      },
+      "id": "broG1J9Nb",
+      "position": {
+        "x": 560.5966720392215,
+        "y": -318.6612064656164
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Check if vp9",
+      "sourceRepo": "Community",
+      "pluginName": "checkVideoCodec",
+      "version": "1.0.0",
+      "inputsDB": {
+        "codec": "vp9"
+      },
+      "id": "zzHAnCiNc",
+      "position": {
+        "x": 881.9148874551727,
+        "y": -243.21258680758078
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Set Original File",
+      "sourceRepo": "Community",
+      "pluginName": "setOriginalFile",
+      "version": "1.0.0",
+      "id": "VQq0whIql",
+      "position": {
+        "x": 748.4864247603847,
+        "y": 852.5870277535475
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Prepare for Transcoding",
+      "sourceRepo": "Community",
+      "pluginName": "goToFlow",
+      "version": "2.0.0",
+      "inputsDB": {
+        "flowId": "85hiIabZc",
+        "pluginId": "0OZi8u1PI"
+      },
+      "id": "5NACZYBYG",
+      "position": {
+        "x": 1094.3526410951733,
+        "y": 549.7580134156826
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Remove Data Streams",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandRemoveDataStreams",
+      "version": "1.0.0",
+      "id": "E537sdF0a",
+      "position": {
+        "x": 907.5950086360627,
+        "y": 551.7136309501559
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Return from Transcoding Prep",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "scwrtORfS",
+      "position": {
+        "x": 149.47285713871906,
+        "y": -545.5355438055747
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "On Flow Error",
+      "sourceRepo": "Community",
+      "pluginName": "onFlowError",
+      "version": "1.0.0",
+      "id": "ybVH-a5NL",
+      "position": {
+        "x": 1346.3202034105095,
+        "y": 224.45399540829357
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "An error occurred during transcoding. Passing file to flow that normalizes and corrects common transcoding issues.",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "DbhMvyf_o",
+      "position": {
+        "x": 1204.5564570078748,
+        "y": 415.11051313237
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Track if Conformity has already occurred",
+      "sourceRepo": "Community",
+      "pluginName": "setFlowVariable",
+      "version": "1.0.0",
+      "inputsDB": {
+        "variable": "conform_has_happened",
+        "value": "1"
+      },
+      "id": "DyxabWKAn",
+      "position": {
+        "x": 150.11741304309442,
+        "y": -496.59825893679306
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Conform Variable != 1",
+      "sourceRepo": "Community",
+      "pluginName": "checkFlowVariable",
+      "version": "1.0.0",
+      "inputsDB": {
+        "variable": "{{{args.variables.user.conform_has_happened}}}",
+        "value": "1",
+        "condition": "!="
+      },
+      "id": "eATE7yxrN",
+      "position": {
+        "x": 1346.1863927428544,
+        "y": 342.2110291364383
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Conform Step has already occurred. Failing flow to prevent infinite loop.",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "X6zSixFur",
+      "position": {
+        "x": 1371.093007721544,
+        "y": 415.27774345461467
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Fail Flow",
+      "sourceRepo": "Community",
+      "pluginName": "failFlow",
+      "version": "1.0.0",
+      "id": "VzJdQ3qvX",
+      "position": {
+        "x": 1370.9406575276662,
+        "y": 548.3426692145412
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "File is the same size or larger than the input file. Keeping original.",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "OEDHmz1Sj",
+      "position": {
+        "x": 748.3087438836211,
+        "y": 755.6393635047383
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "File is smaller! Keeping working file.",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "svc-x1Sm9",
+      "position": {
+        "x": 578.1053305259074,
+        "y": 840.8842251170349
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "File is HEVC, AV1, or VP9, and is an acceptable resolution and bitrate. Keeping.",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "avAfifJOs",
+      "position": {
+        "x": 289.64707971733833,
+        "y": 143.80743073291558
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "File is AV1",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "lxznnqDwh",
+      "position": {
+        "x": 535.5781984953196,
+        "y": -169.90374228888817
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "File is HEVC",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "A51oJC0gB",
+      "position": {
+        "x": 260.6289668024107,
+        "y": -170.5710329178126
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "File is VP9",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "W5enX8izV",
+      "position": {
+        "x": 818.0045660396158,
+        "y": -170.37751686668406
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Checking Library and Notifying relevant programs",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "-uTyLAudE",
+      "position": {
+        "x": 431.30556864504285,
+        "y": 1010.599752846136
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Video is an older, less space efficient video codec. Initiating ffmpeg command with aggressive compression settings.",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "kAd1CKd4_",
+      "position": {
+        "x": 906.6977025095841,
+        "y": 123.59315412005392
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Video is High Resolution (1440p+). HDR/10-bit colour preserved, encoding as 10-bit HEVC_NVENC.",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "tJmJ-AbFT",
+      "position": {
+        "x": 710.5279848210702,
+        "y": -11.919883499337288
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Video is 1080p. Checking the video bitrate.",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "8NcPKeayE",
+      "position": {
+        "x": 315.23495809986457,
+        "y": 12.92067453349776
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Reset Flow Error",
+      "sourceRepo": "Community",
+      "pluginName": "resetFlowError",
+      "version": "1.0.0",
+      "id": "woKzLVsUQ",
+      "position": {
+        "x": 432,
+        "y": 1404
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Begin Command",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandStart",
+      "version": "1.0.0",
+      "id": "sJuXHGyNG",
+      "position": {
+        "x": 516.3364040017236,
+        "y": 221.5084245957679
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Set Video Encoder to HEVC (Quality: 22)",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandSetVideoEncoder",
+      "version": "1.0.0",
+      "inputsDB": {
+        "outputCodec": "hevc_nvenc",
+        "ffmpegPresetEnabled": "true",
+        "ffmpegPreset": "p7",
+        "ffmpegQualityEnabled": "true",
+        "ffmpegQuality": "22",
+        "ffmpegExtraOptionsEnabled": "true",
+        "ffmpegExtraOptions": "-rc:v vbr -multipass fullres -rc-lookahead 32 -spatial_aq 1 -temporal_aq 1 -max_muxing_queue_size 1024"
+      },
+      "id": "pxkr6_IH6",
+      "position": {
+        "x": 516.2616548288682,
+        "y": 272.596384892832
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "10 Bit Video",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommand10BitVideo",
+      "version": "1.0.0",
+      "id": "p01GM4kKv",
+      "position": {
+        "x": 516.4859023474346,
+        "y": 339.7590943627515
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Set Container to MKV",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandSetContainer",
+      "version": "1.0.0",
+      "inputsDB": {
+        "forceConform": "true"
+      },
+      "id": "wLWblCbv4",
+      "position": {
+        "x": 516.6586449031342,
+        "y": 504.3269884882558
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Remove Data Streams",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandRemoveDataStreams",
+      "version": "1.0.0",
+      "id": "_rOppxe-W",
+      "position": {
+        "x": 516.8313874588337,
+        "y": 552.0644471310309
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Execute",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandExecute",
+      "version": "1.0.0",
+      "id": "ivglZzoZv",
+      "position": {
+        "x": 517.0091465574232,
+        "y": 599.2686284780376
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Video is 1080p with a high bitrate. Transcoding to lower bitrate using slightly less aggressive settings.",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "NmZ4vZh_W",
+      "position": {
+        "x": 516.1337982224425,
+        "y": 143.5423176683045
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Is Overall Bitrate Less than 5M?",
+      "sourceRepo": "Community",
+      "pluginName": "checkOverallBitrate",
+      "version": "1.0.0",
+      "id": "vmm9_Gm80",
+      "position": {
+        "x": 315.2660071713532,
+        "y": 58.39651574459285
+      },
+      "fpEnabled": true,
+      "inputsDB": {
+        "unit": "bps",
+        "lessThan": "5000000"
+      }
+    },
+    {
+      "name": "Ensure file has up-to-date Metadata",
+      "sourceRepo": "Community",
+      "pluginName": "runMkvPropEdit",
+      "version": "1.0.0",
+      "id": "A9_bNdaNZ",
+      "position": {
+        "x": 431.2629083526614,
+        "y": 928.707008346099
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Is MKV file?",
+      "sourceRepo": "Community",
+      "pluginName": "checkFileExtension",
+      "version": "1.0.0",
+      "id": "16Mu4hJ2P",
+      "position": {
+        "x": 382.48691699266635,
+        "y": -484.57397889804736
+      },
+      "fpEnabled": true,
+      "inputsDB": {
+        "extensions": "mkv"
+      }
+    },
+    {
+      "name": "File is not MKV. Running through conform steps before transcoding.",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "DDMnUCh0V",
+      "position": {
+        "x": 1093.4472941941217,
+        "y": -390.15498648981884
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "No processing has happened, let's wait to give Tdarr_Server time to breathe.",
+      "sourceRepo": "Community",
+      "pluginName": "waitTimeout",
+      "version": "1.0.0",
+      "id": "3Mq7LhzD-",
+      "position": {
+        "x": 346.6923348548658,
+        "y": 809.5799076029502
+      },
+      "fpEnabled": true,
+      "inputsDB": {
+        "amount": "1"
+      }
+    },
+    {
+      "name": "Check if Conform has Happened During this flow",
+      "sourceRepo": "Community",
+      "pluginName": "checkFlowVariable",
+      "version": "1.0.0",
+      "id": "BIHZrYl0A",
+      "position": {
+        "x": 180.44542022081154,
+        "y": 306.7548059406351
+      },
+      "fpEnabled": true,
+      "inputsDB": {
+        "value": "1",
+        "variable": "{{{args.variables.user.conform_has_happened}}}"
+      }
+    },
+    {
+      "name": "Conform has already happened. Continuing without waiting.",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "Yz5fbG9gl",
+      "position": {
+        "x": 155.42289820178303,
+        "y": 825.6071078415993
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Rules 0-1/18: Delete Junk, Font & Sidecar Image Files",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => {\n  const fs   = require('fs');\n  const path = require('path');\n\n  const inputFile = args.inputFileObj._id;\n  const dir       = path.dirname(inputFile);\n  const inputExt  = path.extname(inputFile).toLowerCase();\n  const inputBase = path.basename(inputFile, inputExt).toLocaleLowerCase('tr-TR');\n\n  const deleteAlwaysExts    = new Set(['.ttf', '.otf', '.woff', '.woff2', '.eot']);\n  const deleteSameNameExts  = new Set(['.txt', '.nfo', '.url', '.html', '.htm']);\n  const imageExts           = new Set(['.jpg', '.jpeg', '.png', '.webp', '.bmp']);\n  const safeImageBases      = new Set([\n    'poster', 'fanart', 'backdrop', 'banner', 'clearart',\n    'logo', 'thumb', 'folder', 'cover', 'landscape',\n  ]);\n\n  const deleted = [];\n  try {\n    for (const file of fs.readdirSync(dir)) {\n      if (file === path.basename(inputFile)) continue;\n      const ext  = path.extname(file).toLowerCase();\n      const base = path.basename(file, ext).toLocaleLowerCase('tr-TR');\n      const full = path.join(dir, file);\n      try {\n        if (fs.statSync(full).isDirectory()) continue;\n        if (deleteAlwaysExts.has(ext)) {\n          fs.unlinkSync(full); deleted.push(file);\n        } else if (deleteSameNameExts.has(ext) && base === inputBase) {\n          if (ext === '.nfo') {\n            try {\n              const content = fs.readFileSync(full, 'utf8');\n              if (content.includes('type=\"tmdb\"') || content.includes('<episodedetails>') ||\n                  content.includes('<movie>') || content.includes('<tvshow>')) {\n                args.jobLog('Skipping metadata NFO: ' + file);\n                continue;\n              }\n            } catch (e) { /* unreadable \u2014 fall through to delete */ }\n          }\n          fs.unlinkSync(full); deleted.push(file);\n        } else if (imageExts.has(ext) && !safeImageBases.has(base) && !/^season/.test(base) && base === inputBase) {\n          fs.unlinkSync(full); deleted.push(file);\n        }\n      } catch (e) { args.jobLog('Could not delete ' + file + ': ' + e.message); }\n    }\n  } catch (e) { args.jobLog('Dir scan error: ' + e.message); }\n\n  args.jobLog(deleted.length\n    ? 'Deleted ' + deleted.length + ' sidecar(s): ' + deleted.join(', ')\n    : 'No sidecar files to delete.');\n  return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n};\n"
+      },
+      "id": "delCompFiles1",
+      "position": {
+        "x": 382.0,
+        "y": -744.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Rules 2-4/11/13/14: Filter Streams, UTF-8 Subs, Dispositions",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => {\n  const fs   = require('fs');\n  const path = require('path');\n  const { spawnSync, spawn } = require('child_process');\n\n  const inputFile  = args.inputFileObj._id;\n  const dir        = path.dirname(inputFile);\n  const inputExt   = path.extname(inputFile).toLowerCase();\n  const inputBase  = path.basename(inputFile, inputExt).toLocaleLowerCase('tr-TR');\n\n  const streams      = (args.inputFileObj.ffProbeData || {}).streams || [];\n  const audioStreams  = streams.filter(s => s.codec_type === 'audio');\n  const subStreams    = streams.filter(s => s.codec_type === 'subtitle');\n\n  const TR_LANGS   = new Set(['tur', 'tr']);\n  const KEEP_SUB   = new Set(['tur', 'tr', 'eng', 'en', 'und']);\n  const KEEP_AUDIO = new Set(['eng', 'en', 'tur', 'tr', 'jpn', 'ja', 'und', '']);\n  const SUB_EXTS   = new Set(['.srt', '.ass', '.ssa', '.vtt', '.sub', '.sup']);\n  const getLang    = s => (s.tags && s.tags.language ? s.tags.language.toLowerCase() : 'und');\n\n  // Audio: keep KEEP_AUDIO langs + explicit original + first track as safety\n  const CODEC_QUALITY = { truehd: 10, flac: 9, dts: 7, eac3: 7, ac3: 5, aac: 4, mp3: 3, opus: 2, vorbis: 2 };\n  const codecScore    = s => CODEC_QUALITY[s.codec_name] || 1;\n  const bitrateOf     = s => parseInt((s.tags && (s.tags['BPS-eng'] || s.tags['BPS'])) || s.bit_rate || '0', 10);\n  const explicitOrig  = audioStreams.find(s => s.disposition && s.disposition.original === 1);\n  const bestQuality   = audioStreams.slice().sort(\n    (a, b) => (codecScore(b) - codecScore(a)) || (bitrateOf(b) - bitrateOf(a))\n  )[0];\n  const originalTrack = explicitOrig || bestQuality;\n\n  const keepAudio  = audioStreams.filter(s =>\n    KEEP_AUDIO.has(getLang(s)) || (originalTrack && s.index === originalTrack.index) || (audioStreams[0] && s.index === audioStreams[0].index)\n  );\n  const finalAudio = keepAudio.length > 0 ? keepAudio : (audioStreams.length > 0 ? [audioStreams[0]] : []);\n\n  // Always reorder when a Turkish track exists \u2014 TR first regardless of filtering\n  let audioMapsToKeep = null;\n  const hasTRAudio = finalAudio.some(s => TR_LANGS.has(getLang(s)));\n  const audioWasFiltered = finalAudio.length < audioStreams.length;\n\n  if (audioWasFiltered || hasTRAudio) {\n    if (hasTRAudio) {\n      const trTracks    = finalAudio.filter(s =>  TR_LANGS.has(getLang(s)));\n      const otherTracks = finalAudio.filter(s => !TR_LANGS.has(getLang(s)));\n      audioMapsToKeep = [...trTracks, ...otherTracks].map(s => s.index);\n    } else {\n      audioMapsToKeep = finalAudio.map(s => s.index);\n    }\n    args.jobLog('Audio: keeping indices ' + audioMapsToKeep.join(', ') +\n      (audioWasFiltered ? ' (dropped other dubs)' : '') +\n      (hasTRAudio ? ' (TR first)' : ''));\n  }\n\n  // External subtitle detection \u2014 ONLY files whose name starts with this video's basename\n  // to avoid grabbing sibling episode subtitles (e.g. S01E02.tr.srt while processing S01E01)\n  let extSubFiles = [];\n  if (!inputBase) {\n    args.jobLog('inputBase empty \u2014 skipping external sub scan.');\n  } else\n  try {\n    extSubFiles = fs.readdirSync(dir)\n      .filter(f => {\n        if (f === path.basename(inputFile)) return false;\n        const ext     = path.extname(f).toLowerCase();\n        const fLower  = f.toLocaleLowerCase('tr-TR');\n        const full    = path.join(dir, f);\n        return SUB_EXTS.has(ext) &&\n               fLower.startsWith(inputBase) &&\n               (fLower.length === inputBase.length || /^[.\\s_\\-\\[\\(]/.test(fLower[inputBase.length])) &&\n               fs.statSync(full).isFile();\n      })\n      .map(f => path.join(dir, f));\n  } catch (e) { args.jobLog('External sub scan error: ' + e.message); }\n\n  // Convert SRT/SUB to UTF-8 \u2014 includes UTF-16 for subtitles from Turkish sites\n  const convertedSubs = [];\n  for (const sf of extSubFiles) {\n    const ext = path.extname(sf).toLowerCase();\n    if (ext === '.srt' || ext === '.sub') {\n      const tmpPath = sf + '.utf8tmp';\n      let used = sf;\n      try {\n        const chk = spawnSync('iconv', ['-f', 'UTF-8', '-t', 'UTF-8', sf], { encoding: 'buffer', timeout: 30000 });\n        if (chk.status === 0) {\n          args.jobLog(path.basename(sf) + ' already UTF-8');\n        } else {\n          for (const enc of ['UTF-16LE', 'UTF-16BE', 'WINDOWS-1254', 'ISO-8859-9', 'ISO-8859-1', 'WINDOWS-1252']) {\n            const r = spawnSync('iconv', ['-f', enc, '-t', 'UTF-8', '-o', tmpPath, sf], { encoding: 'utf8', timeout: 30000 });\n            if (r.status === 0) {\n              args.jobLog('Converted ' + path.basename(sf) + ' from ' + enc + ' to UTF-8');\n              used = tmpPath; break;\n            }\n          }\n          if (used === sf) args.jobLog('Could not detect charset for ' + path.basename(sf) + ', using as-is');\n        }\n      } catch (e) { args.jobLog('iconv error for ' + path.basename(sf) + ': ' + e.message); }\n      convertedSubs.push(used);\n    } else { convertedSubs.push(sf); }\n  }\n\n  const embKeep        = subStreams.filter(s => KEEP_SUB.has(getLang(s)));\n  const needsSubFilt   = embKeep.length < subStreams.length;\n  const hasExtSubs     = convertedSubs.length > 0;\n  const needsAudioFilt = audioMapsToKeep !== null;\n\n  if (!needsSubFilt && !hasExtSubs && !needsAudioFilt) {\n    args.jobLog('No stream changes needed.');\n    for (const sf of convertedSubs) { if (sf.endsWith('.utf8tmp')) { try { fs.unlinkSync(sf); } catch(e) {} } }\n    return { outputFileObj: args.inputFileObj, outputNumber: 2, variables: args.variables };\n  }\n\n  // workDir g\u00fcvenlik kontrol\u00fc: film/dizi klas\u00f6r\u00fcne yaz\u0131lmas\u0131n\u0131 engelle\n  const outBasename  = path.basename(inputFile, inputExt) + '.mkv';\n  const inputDir     = path.dirname(inputFile);\n  const safeWorkDir  = (args.workDir && args.workDir !== inputDir && !inputDir.startsWith(args.workDir))\n    ? args.workDir : '/tdarr-cache';\n  const outputFile   = path.join(safeWorkDir, 'tdarr-work-' + Date.now(), outBasename);\n  const workParent  = path.dirname(outputFile);\n  try { fs.mkdirSync(workParent, { recursive: true }); } catch(e) {}\n\n  const ff = ['-y', '-i', inputFile];\n  for (const s of convertedSubs) ff.push('-i', s);\n\n  const IMAGE_CODECS  = new Set(['mjpeg', 'png', 'bmp', 'gif', 'tiff', 'webp']);\n  const primaryVideo  = streams.find(s => s.codec_type === 'video' && !IMAGE_CODECS.has(s.codec_name));\n  if (primaryVideo) {\n    ff.push('-map', '0:' + primaryVideo.index);\n  } else {\n    ff.push('-map', '0:v?');\n  }\n\n  if (needsAudioFilt) {\n    for (const idx of audioMapsToKeep) ff.push('-map', '0:' + idx);\n  } else { ff.push('-map', '0:a?'); }\n\n  if (subStreams.length > 0) {\n    if (needsSubFilt) { for (const sub of embKeep) ff.push('-map', '0:' + sub.index); }\n    else { ff.push('-map', '0:s?'); }\n  }\n  convertedSubs.forEach((sf, i) => ff.push('-map', (i + 1) + ':0'));\n  ff.push('-map', '0:t?'); // preserve embedded fonts/attachments\n  ff.push('-c', 'copy');\n\n  // Transcode MKV-incompatible subtitle codecs (mov_text, tx3g) to SRT\n  // instead of triggering the conform flow with a copy error.\n  const INCOMPAT_SUB = new Set(['mov_text', 'tx3g', 'c608', 'c708']);\n  const outSubs = needsSubFilt ? embKeep : subStreams;\n  outSubs.forEach((s, i) => {\n    if (INCOMPAT_SUB.has(s.codec_name)) {\n      ff.push('-c:s:' + i, 'srt');\n      args.jobLog('Transcoding subtitle ' + i + ' (' + s.codec_name + ') to SRT for MKV compatibility.');\n    }\n  });\n\n  const baseSubCount = needsSubFilt ? embKeep.length : subStreams.length;\n\n  // Turkish subtitle filename detection \u2014 catches .tur, .tr, turkish, turkce, t\u00fcrk\u00e7e\n  const parseLang = (filename) => {\n    const n = path.basename(filename).toLocaleLowerCase('tr-TR').replace(/\\.utf8tmp$/, '');\n    // Turkish: .tur. / _tur_ / [tr] / [tur] / [turkish] / turkish / turkce / t\u00fcrk\u00e7e\n    if (/[._\\-]tur([._\\-]|$)/.test(n) || /(?:^|[._\\-\\[])tr[._\\-\\]]/.test(n) ||\n        /\\[tur\\]/.test(n) || /\\[turkish\\]/.test(n) ||\n        n.includes('turkish') || n.includes('turkce') || n.includes('t\u00fcrk\u00e7e')) return 'tur';\n    // English: .eng. / _en_ / [en] / [eng] / [english] / english\n    if (/[._\\-]eng([._\\-]|$)/.test(n) || /(?:^|[._\\-\\[])en[._\\-\\]]/.test(n) ||\n        /\\[eng\\]/.test(n) || /\\[english\\]/.test(n) ||\n        n.includes('english')) return 'eng';\n    return 'und';\n  };\n\n  convertedSubs.forEach((sf, i) => {\n    ff.push('-metadata:s:s:' + (baseSubCount + i), 'language=' + parseLang(sf));\n  });\n\n  const audioOutCount = needsAudioFilt ? audioMapsToKeep.length : audioStreams.length;\n  for (let i = 0; i < audioOutCount; i++) {\n    ff.push('-disposition:a:' + i, i === 0 ? 'default' : '0');\n  }\n\n  const allOutEmbSubs = needsSubFilt ? embKeep : subStreams;\n  const totalSubOut   = allOutEmbSubs.length + convertedSubs.length;\n  let trDefaultSet    = false;\n\n  for (let i = 0; i < totalSubOut; i++) {\n    let subLang = 'und';\n    if (i < allOutEmbSubs.length) {\n      subLang = getLang(allOutEmbSubs[i]);\n    } else {\n      subLang = parseLang(convertedSubs[i - allOutEmbSubs.length]);\n    }\n    // Only first Turkish subtitle gets default\n    if (TR_LANGS.has(subLang) && !trDefaultSet) {\n      ff.push('-disposition:s:' + i, 'default');\n      trDefaultSet = true;\n    } else {\n      ff.push('-disposition:s:' + i, '0');\n    }\n  }\n  ff.push('-map_chapters', '0');\n  ff.push(outputFile);\n\n  args.jobLog('Running ffmpeg stream filter...');\n  const startTime = Date.now();\n  let res;\n  try {\n    res = await new Promise((resolve, reject) => {\n      const proc = spawn(args.ffmpegPath, ff);\n      let stderr = '';\n\n      // Heartbeat every 30s \u2014 keeps Worker Stall Detector from firing on large files\n      const heartbeat = setInterval(() => {\n        const elapsed = Math.round((Date.now() - startTime) / 1000);\n        args.jobLog('ffmpeg stream filter running... (' + elapsed + 's elapsed)');\n      }, 30000);\n\n      // Hard cap: 2 hours \u2014 cleared on close to avoid memory leak\n      const killTimeout = setTimeout(() => { proc.kill('SIGKILL'); }, 7200000);\n\n      proc.stderr.on('data', d => { stderr += d.toString(); });\n\n      proc.on('close', (code, signal) => {\n        clearInterval(heartbeat);\n        clearTimeout(killTimeout);\n        resolve({ status: signal ? null : code, stderr, signal });\n      });\n\n      proc.on('error', err => {\n        clearInterval(heartbeat);\n        clearTimeout(killTimeout);\n        reject(err);\n      });\n    });\n  } finally {\n    for (const sf of convertedSubs) { if (sf.endsWith('.utf8tmp')) { try { fs.unlinkSync(sf); } catch(e) {} } }\n  }\n\n  if (res.status === null) {\n    const msg = 'ffmpeg stream filter killed (timeout/signal)';\n    args.jobLog(msg);\n    try { fs.unlinkSync(outputFile); } catch(e) {}\n    throw new Error(msg);\n  }\n  if (res.status !== 0) {\n    const msg = 'ffmpeg stream filter failed (code ' + res.status + '): ' + (res.stderr || '').slice(0, 600);\n    args.jobLog(msg);\n    try { fs.unlinkSync(outputFile); } catch(e) {}\n    throw new Error(msg);\n  }\n\n  // Defer external subtitle deletion to verifyOutput17 \u2014 prevents data loss if\n  // downstream transcoding or verification fails after this step.\n  // Store original path so verifyOutput17 can detect if transcode was reverted.\n  args.variables.filterStreamsOrigFile = inputFile;\n  args.variables.pendingDeleteSubs = extSubFiles;\n  // Store expected audio count for verifyOutput17 integrity check\n  args.variables.expectedAudioCount = finalAudio.length;\n  args.jobLog('Stream filter done \u2192 ' + outputFile + '. Subtitles queued for deletion after verification.');\n  return { outputFileObj: { _id: outputFile }, outputNumber: 1, variables: args.variables };\n};\n"
+      },
+      "id": "filterStreams1",
+      "position": {
+        "x": 382.0,
+        "y": -864.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Rule 8: Already Processed? (Skip)",
+      "sourceRepo": "Community",
+      "pluginName": "processedCheck",
+      "version": "1.0.0",
+      "inputsDB": {
+        "checkType": "filePath"
+      },
+      "id": "procCheck8",
+      "position": {
+        "x": 382.0,
+        "y": -1024.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Rule 8: Mark File as Processed",
+      "sourceRepo": "Community",
+      "pluginName": "processedAdd",
+      "version": "1.0.0",
+      "inputsDB": {
+        "checkType": "filePath",
+        "fileToAdd": "originalFile"
+      },
+      "id": "procAdd8",
+      "position": {
+        "x": 580.0,
+        "y": 1100.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Rule 9: Skip if Bitrate < 1.5 Mbps (already small)",
+      "sourceRepo": "Community",
+      "pluginName": "checkOverallBitrate",
+      "version": "1.0.0",
+      "inputsDB": {
+        "lessThan": "1500000",
+        "unit": "bps"
+      },
+      "id": "lowBitrate9",
+      "position": {
+        "x": 382.0,
+        "y": -804.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Rule 16: Pre-flight Health Check",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => {\n  const { spawnSync } = require('child_process');\n  const inputFile = args.inputFileObj._id;\n  args.jobLog('Rule 16: Pre-flight health check \u2192 ' + inputFile);\n\n  const streams  = ((args.inputFileObj.ffProbeData || {}).streams || []);\n  const format   = (args.inputFileObj.ffProbeData || {}).format || {};\n  const duration = parseFloat(format.duration || '0');\n\n  // 1. Dolby Vision detection \u2014 DV + NVENC = destroyed colors; skip cleanly\n  const hasDV = streams.some(s =>\n    s.codec_type === 'video' && (\n      (s.profile || '').toLowerCase().includes('dolby vision') ||\n      (JSON.stringify(s.side_data_list || [])).includes('DOVI') ||\n      (JSON.stringify(s.side_data_list || [])).includes('dovi')\n    )\n  );\n  if (hasDV) {\n    args.jobLog('Dolby Vision detected \u2014 skipping transcode to preserve HDR color profile.');\n    return { outputFileObj: args.inputFileObj, outputNumber: 2, variables: args.variables };\n  }\n\n  // HDR10+ (SMPTE 2094-40) \u2014 NVENC drops dynamic metadata; skip like DV\n  const hasHDR10Plus = streams.some(s =>\n    s.codec_type === 'video' && (\n      JSON.stringify(s.side_data_list || []).includes('2094-40') ||\n      JSON.stringify(s.side_data_list || []).includes('SMPTE2094')\n    )\n  );\n  if (hasHDR10Plus) {\n    args.jobLog('HDR10+ (SMPTE 2094-40) detected \u2014 skipping transcode to preserve dynamic metadata.');\n    return { outputFileObj: args.inputFileObj, outputNumber: 2, variables: args.variables };\n  }\n\n  if (!streams.some(s => s.codec_type === 'video')) {\n    args.jobLog('No video stream \u2014 skipping (mark processed).');\n    return { outputFileObj: args.inputFileObj, outputNumber: 2, variables: args.variables };\n  }\n\n  const CRITICAL = /moov atom not found|Invalid data found when processing input|could not find codec parameters|no streams found/i;\n\n  // 2. Decode first 10s\n  const head = spawnSync(\n    args.ffmpegPath,\n    ['-v', 'error', '-i', inputFile, '-t', '10', '-f', 'null', '-'],\n    { encoding: 'utf8', timeout: 120000, killSignal: 'SIGKILL' }\n  );\n  if (head.status === null || (head.status !== 0 && CRITICAL.test(head.stderr || ''))) {\n    args.jobLog('Health check FAILED at start (exit ' + head.status + '): ' + (head.stderr || '').slice(0, 400));\n    return { outputFileObj: args.inputFileObj, outputNumber: 3, variables: args.variables };\n  }\n\n  // 3. Decode last 30s \u2014 catches truncated / end-corrupted files\n  if (duration > 60) {\n    const seekTo = Math.max(0, duration - 30).toFixed(3);\n    const tail = spawnSync(\n      args.ffmpegPath,\n      ['-v', 'error', '-ss', seekTo, '-i', inputFile, '-t', '30', '-f', 'null', '-'],\n      { encoding: 'utf8', timeout: 120000, killSignal: 'SIGKILL' }\n    );\n    if (tail.status === null || (tail.status !== 0 && CRITICAL.test(tail.stderr || ''))) {\n      args.jobLog('Health check FAILED at end (exit ' + tail.status + '): ' + (tail.stderr || '').slice(0, 400));\n      return { outputFileObj: args.inputFileObj, outputNumber: 3, variables: args.variables };\n    }\n    args.jobLog('Health check passed (head + tail).');\n  } else {\n    args.jobLog('Health check passed.');\n  }\n\n  return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n};\n"
+      },
+      "id": "healthCheck16",
+      "position": {
+        "x": 382.0,
+        "y": -1160.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Rule 17/19: Verify Output Before Replace",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => {\n  const { spawnSync } = require('child_process');\n  const fs   = require('fs');\n  const path = require('path');\n  const workingFile = args.inputFileObj._id;\n  args.jobLog('Rule 17/19: Verifying output \u2192 ' + workingFile);\n\n  const fail = (msg) => {\n    args.jobLog('Verification FAILED: ' + msg);\n    // Clean up pendingDeleteSubs on failure \u2014 originals stay intact\n    if (args.variables && Array.isArray(args.variables.pendingDeleteSubs)) {\n      args.variables.pendingDeleteSubs = [];\n    }\n    return { outputFileObj: args.inputFileObj, outputNumber: 2, variables: args.variables };\n  };\n\n  // 1. File must exist and be larger than 10 KB\n  try {\n    const stat = fs.statSync(workingFile);\n    if (stat.size < 10240) return fail('file too small (' + stat.size + ' bytes)');\n    args.jobLog('File size: ' + (stat.size / 1024 / 1024).toFixed(1) + ' MB');\n  } catch (e) {\n    return fail('cannot stat file: ' + e.message);\n  }\n\n  // 2. ffprobe: must have a video stream and a sane duration\n  const ffprobePath = path.join(path.dirname(args.ffmpegPath), 'ffprobe');\n  const probeResult = spawnSync(ffprobePath, [\n    '-v', 'error', '-show_streams', '-show_format',\n    '-print_format', 'json', workingFile,\n  ], { encoding: 'utf8', timeout: 60000, killSignal: 'SIGKILL' });\n\n  if (probeResult.status === 0 && probeResult.stdout) {\n    try {\n      const info        = JSON.parse(probeResult.stdout);\n      const outStreams   = info.streams || [];\n      const hasVideo    = outStreams.some(s => s.codec_type === 'video');\n      const outDuration = parseFloat((info.format || {}).duration || '0');\n\n      if (!hasVideo) return fail('no video stream in output');\n      if (outDuration < 10) return fail('duration too short (' + outDuration.toFixed(1) + 's)');\n\n      // Audio stream count sanity check\n      const outAudioCount = outStreams.filter(s => s.codec_type === 'audio').length;\n      const expAudio = (args.variables && typeof args.variables.expectedAudioCount === 'number')\n        ? args.variables.expectedAudioCount : -1;\n      if (expAudio > 0 && outAudioCount < expAudio) {\n        return fail('audio streams dropped: expected ' + expAudio + ', got ' + outAudioCount);\n      }\n      if (expAudio > 0) args.jobLog('Audio streams OK: ' + outAudioCount + ' (expected ' + expAudio + ')');\n\n      const origDuration = parseFloat(((args.inputFileObj.ffProbeData || {}).format || {}).duration || '0');\n      if (origDuration > 0) {\n        const ratio = outDuration / origDuration;\n        if (ratio < 0.95) {\n          return fail('duration mismatch \u2014 output ' + outDuration.toFixed(1) + 's vs original ' + origDuration.toFixed(1) + 's');\n        }\n        args.jobLog('Duration OK: ' + outDuration.toFixed(1) + 's (orig ' + origDuration.toFixed(1) + 's)');\n      }\n    } catch (e) {\n      args.jobLog('ffprobe parse error (non-fatal): ' + e.message);\n    }\n  }\n\n  // 3. Decode first 3 s for integrity check\n  const probe = spawnSync(\n    args.ffmpegPath,\n    ['-v', 'error', '-i', workingFile, '-t', '3', '-f', 'null', '-'],\n    { encoding: 'utf8', timeout: 60000, killSignal: 'SIGKILL' }\n  );\n\n  if (probe.status === null) {\n    args.jobLog('Verification probe timed out \u2014 treating as passed.');\n  } else {\n    const CRITICAL = /Invalid data found when processing input|moov atom not found|could not find codec parameters/i;\n    if (probe.status !== 0) return fail('exit ' + probe.status + ': ' + (probe.stderr || '').slice(0, 400));\n    if (probe.stderr && CRITICAL.test(probe.stderr)) return fail('integrity error: ' + probe.stderr.slice(0, 400));\n  }\n\n  // Only delete external subs if the transcoded output was kept (not reverted).\n  // If working file == original file that filterStreams ran on, transcode was\n  // reverted (output was larger) \u2014 keep external subs to avoid data loss.\n  const pending = (args.variables && Array.isArray(args.variables.pendingDeleteSubs))\n    ? args.variables.pendingDeleteSubs : [];\n  const origInputForFilter = (args.variables && args.variables.filterStreamsOrigFile) || '';\n  const cacheRoot  = args.workDir || '';\n  const isReverted = origInputForFilter && (workingFile === origInputForFilter);\n  const isInCache  = cacheRoot && workingFile.startsWith(cacheRoot);\n  const safeToDeleteSubs = !isReverted && (isInCache || !origInputForFilter);\n\n  if (!safeToDeleteSubs && pending.length > 0) {\n    args.jobLog('Transcode was reverted to original \u2014 keeping external subtitle files.');\n  } else {\n    for (const sf of pending) {\n      try {\n        fs.unlinkSync(sf);\n        args.jobLog('Deleted embedded sub: ' + path.basename(sf));\n      } catch (e) {\n        args.jobLog('Could not delete sub ' + path.basename(sf) + ': ' + e.message);\n      }\n    }\n  }\n  args.variables.pendingDeleteSubs = [];\n  args.variables.filterStreamsOrigFile = '';\n\n  args.jobLog('Verification passed.');\n  return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n};\n"
+      },
+      "id": "verifyOutput17",
+      "position": {
+        "x": 431.0,
+        "y": 892.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Route to Sonarr / Radarr / Skip (by DB ID)",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => {\n  const http = require('http');\n  const db = args.inputFileObj.DB;\n  const filePath = args.inputFileObj._id;\n\n  args.jobLog('--- *arr & Jellyfin Sync Node ---');\n  args.jobLog('Processing file: ' + filePath);\n\n  // \u2500\u2500 HTTP helper with retry + exponential backoff \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n  const makeRequest = (options, bodyData = null, retries = 2, baseDelay = 500) => {\n    return new Promise((resolve, reject) => {\n      const attempt = (n, delay) => {\n        const req = http.request(options, (res) => {\n          let data = '';\n          res.on('data', (chunk) => data += chunk);\n          res.on('end', () => resolve({ statusCode: res.statusCode, body: data }));\n        });\n        req.on('error', (e) => {\n          if (n > 0) {\n            args.jobLog('Request error (' + options.hostname + '): ' + e.message + ' \u2014 retrying in ' + delay + 'ms');\n            setTimeout(() => attempt(n - 1, delay * 2), delay);\n          } else {\n            reject(e);\n          }\n        });\n        req.on('timeout', () => {\n          req.destroy();\n          if (n > 0) {\n            args.jobLog('Request timeout (' + options.hostname + ') \u2014 retrying in ' + delay + 'ms');\n            setTimeout(() => attempt(n - 1, delay * 2), delay);\n          } else {\n            reject(new Error('timeout after retries'));\n          }\n        });\n        if (bodyData) req.write(bodyData);\n        req.end();\n      };\n      attempt(retries, baseDelay);\n    });\n  };\n\n  // 1. Path & Library Detection\n  let isTV = db === 'uhyljggCb' || db === 'vs2KAqJBd' || filePath.toLowerCase().includes('/tvshows/') || filePath.toLowerCase().includes('/anime/');\n  let isMovie = db === 'L3WfEnP1U' || filePath.toLowerCase().includes('/movies/');\n\n  let host = null, port = null, arrKey = null;\n  if (isTV) {\n    args.jobLog('Library detected: TV/Anime \u2192 target Sonarr');\n    host = 'sonarr'; port = 8989;\n    arrKey = 'YOUR_SONARR_OR_RADARR_API_KEY';\n  } else if (isMovie) {\n    args.jobLog('Library detected: Movies \u2192 target Radarr');\n    host = 'radarr'; port = 7878;\n    arrKey = 'YOUR_SONARR_OR_RADARR_API_KEY';\n  } else {\n    args.jobLog('Library: Other (' + db + ') \u2192 skipping *arr notification');\n  }\n\n  // 2. Notify Sonarr/Radarr\n  if (host) {\n    try {\n      let matchedId = null;\n      let cmdBody = {};\n\n      if (isTV) {\n        args.jobLog('Fetching series list from Sonarr...');\n        const res = await makeRequest({ hostname: host, port, path: '/api/v3/series?apikey=' + arrKey, method: 'GET', timeout: 10000 });\n        if (res.statusCode === 200) {\n          const matched = JSON.parse(res.body).find(s => filePath.toLowerCase().startsWith(s.path.replace(/\\/$/, '').toLowerCase() + '/'));\n          if (matched) {\n            matchedId = matched.id;\n            cmdBody = { name: 'RescanSeries', seriesId: matchedId };\n            args.jobLog('Matched series: \"' + matched.title + '\" (ID: ' + matchedId + ')');\n          }\n        }\n      } else if (isMovie) {\n        args.jobLog('Fetching movie list from Radarr...');\n        const res = await makeRequest({ hostname: host, port, path: '/api/v3/movie?apikey=' + arrKey, method: 'GET', timeout: 10000 });\n        if (res.statusCode === 200) {\n          const matched = JSON.parse(res.body).find(m => filePath.toLowerCase().startsWith(m.path.replace(/\\/$/, '').toLowerCase() + '/'));\n          if (matched) {\n            matchedId = matched.id;\n            cmdBody = { name: 'RescanMovie', movieId: matchedId };\n            args.jobLog('Matched movie: \"' + matched.title + '\" (ID: ' + matchedId + ')');\n          }\n        }\n      }\n\n      if (!matchedId) {\n        args.jobLog('No path match \u2014 falling back to global rescan.');\n        cmdBody = { name: isTV ? 'RescanSeries' : 'RescanMovie' };\n      }\n\n      const payload = JSON.stringify(cmdBody);\n      const cmdRes = await makeRequest({\n        hostname: host, port,\n        path: '/api/v3/command?apikey=' + arrKey,\n        method: 'POST',\n        headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(payload) },\n        timeout: 10000\n      }, payload);\n      args.jobLog('*arr response: HTTP ' + cmdRes.statusCode);\n    } catch (e) {\n      args.jobLog('*arr notify failed (non-fatal): ' + e.message);\n    }\n  }\n\n  // 3. Notify Jellyfin\n  const jfKey = 'YOUR_JELLYFIN_API_KEY';\n  const jfPayload = JSON.stringify({ Updates: [{ Path: filePath, UpdateType: 'Modified' }] });\n  for (const jfHost of ['jellyfin', 'YOUR_JELLYFIN_IP']) {\n    try {\n      args.jobLog('Notifying Jellyfin on ' + jfHost + '...');\n      const res = await makeRequest({\n        hostname: jfHost, port: 8096,\n        path: '/Library/Media/Updated?api_key=' + jfKey,\n        method: 'POST',\n        headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(jfPayload) },\n        timeout: 5000\n      }, jfPayload, 1);  // 1 retry for Jellyfin\n      args.jobLog('Jellyfin (' + jfHost + '): HTTP ' + res.statusCode);\n      if (res.statusCode === 200 || res.statusCode === 204) { break; }\n    } catch (e) {\n      args.jobLog('Jellyfin (' + jfHost + ') failed: ' + e.message);\n    }\n  }\n\n  // 4. Notify Bazarr \u2014 wait 15s for Sonarr/Radarr rescan to complete first\n  await new Promise(resolve => setTimeout(resolve, 15000));\n  args.jobLog('Bazarr delay elapsed, sending subtitle search request...');\n  const bzKey = 'YOUR_BAZARR_API_KEY';\n  try {\n    const encoded = encodeURIComponent(filePath);\n    if (isTV) {\n      const epRes = await makeRequest({ hostname: 'bazarr', port: 6767, path: '/api/episodes?path=' + encoded + '&apikey=' + bzKey, method: 'GET', timeout: 10000 });\n      if (epRes.statusCode === 200) {\n        const eps = (JSON.parse(epRes.body).data || []);\n        if (eps.length > 0) {\n          const sp = JSON.stringify({ episodeid: [eps[0].sonarrEpisodeId] });\n          const sr = await makeRequest({ hostname: 'bazarr', port: 6767, path: '/api/episodes/wanted/search?apikey=' + bzKey, method: 'POST', headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(sp) }, timeout: 10000 }, sp);\n          args.jobLog('Bazarr episode search: HTTP ' + sr.statusCode);\n        } else { args.jobLog('Bazarr: episode not found.'); }\n      }\n    } else if (isMovie) {\n      const mvRes = await makeRequest({ hostname: 'bazarr', port: 6767, path: '/api/movies?path=' + encoded + '&apikey=' + bzKey, method: 'GET', timeout: 10000 });\n      if (mvRes.statusCode === 200) {\n        const mvs = (JSON.parse(mvRes.body).data || []);\n        if (mvs.length > 0) {\n          const sp = JSON.stringify({ radarrid: [mvs[0].radarrId] });\n          const sr = await makeRequest({ hostname: 'bazarr', port: 6767, path: '/api/movies/wanted/search?apikey=' + bzKey, method: 'POST', headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(sp) }, timeout: 10000 }, sp);\n          args.jobLog('Bazarr movie search: HTTP ' + sr.statusCode);\n        } else { args.jobLog('Bazarr: movie not found.'); }\n      }\n    }\n  } catch (e) {\n    args.jobLog('Bazarr notify failed (non-fatal): ' + e.message);\n  }\n\n  return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n};"
+      },
+      "id": "libRoute21",
+      "position": {
+        "x": 431.33,
+        "y": 1071.58
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "1440p+: Skip re-encode if already < 8 Mbps (HEVC/AV1/VP9)",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => {\n  const streams = ((args.inputFileObj.ffProbeData || {}).streams || []);\n  const format  = (args.inputFileObj.ffProbeData || {}).format || {};\n\n  const IMAGE_CODECS = new Set(['mjpeg', 'png', 'bmp', 'gif', 'tiff', 'webp']);\n  const videoStream  = streams.find(s => s.codec_type === 'video' && !IMAGE_CODECS.has(s.codec_name));\n  const overallBps   = parseInt(format.bit_rate || '0', 10);\n  const videoBps     = videoStream ? parseInt(\n    videoStream.bit_rate ||\n    (videoStream.tags && (videoStream.tags['BPS-eng'] || videoStream.tags['BPS'])) ||\n    '0', 10\n  ) : 0;\n  const bpsToUse = videoBps > 0 ? videoBps : overallBps;\n\n  if (!videoStream || bpsToUse === 0) {\n    args.jobLog('1440p+ bitrate check: no video stream or unknown bitrate \u2014 proceeding with encode.');\n    return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n  }\n\n  const codec = (videoStream.codec_name || '').toLowerCase();\n  const EFFICIENT = new Set(['hevc', 'av1', 'vp9']);\n  const THRESHOLD = 12000000; // 12 Mbps video bitrate \u2014 well-compressed 4K/1440p\n\n  if (EFFICIENT.has(codec) && bpsToUse < THRESHOLD) {\n    args.jobLog(\n      '1440p+ ' + codec.toUpperCase() + ' at ' + (bpsToUse / 1000000).toFixed(1) +\n      ' Mbps < ' + (THRESHOLD / 1000000) + ' Mbps threshold \u2014 skipping re-encode (already efficient).' +\n      (videoBps > 0 ? ' [video stream bitrate]' : ' [overall bitrate fallback]')\n    );\n    return { outputFileObj: args.inputFileObj, outputNumber: 2, variables: args.variables };\n  }\n\n  args.jobLog(\n    '1440p+ ' + codec.toUpperCase() + ' at ' + (bpsToUse / 1000000).toFixed(1) +\n    ' Mbps \u2014 proceeding with encode.'\n  );\n  return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n};\n"
+      },
+      "id": "hrBitrateCheck",
+      "position": {
+        "x": 710.5,
+        "y": 60.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "1080p AV1/VP9: Skip if < 10 Mbps (already efficient)",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => {\n  const streams    = ((args.inputFileObj.ffProbeData || {}).streams || []);\n  const format     = (args.inputFileObj.ffProbeData || {}).format || {};\n  const IMAGE_CODECS = new Set(['mjpeg', 'png', 'bmp', 'gif', 'tiff', 'webp']);\n  const videoStream = streams.find(s => s.codec_type === 'video' && !IMAGE_CODECS.has(s.codec_name));\n  const codec      = videoStream ? (videoStream.codec_name || '').toLowerCase() : '';\n  const overallBps = parseInt(format.bit_rate || '0', 10);\n  // Use video stream bitrate (same as hrBitrateCheck) for consistency; fallback to overall\n  const videoBps   = parseInt(\n    videoStream ? (\n      videoStream.bit_rate ||\n      (videoStream.tags && (videoStream.tags['BPS-eng'] || videoStream.tags['BPS'])) ||\n      '0'\n    ) : '0', 10\n  );\n  const bpsToUse = videoBps > 0 ? videoBps : overallBps;\n\n  // AV1/VP9 are more space-efficient than HEVC \u2014 only re-encode if extremely high bitrate\n  const EFFICIENT  = new Set(['av1', 'vp9']);\n  const THRESHOLD  = 10000000; // 10 Mbps video bitrate\n\n  if (EFFICIENT.has(codec)) {\n    if (bpsToUse > 0 && bpsToUse < THRESHOLD) {\n      args.jobLog(\n        '1080p ' + codec.toUpperCase() + ' at ' + (bpsToUse / 1000000).toFixed(1) +\n        ' Mbps < ' + (THRESHOLD / 1000000) + ' Mbps \u2014 skipping re-encode (efficient codec).' +\n        (videoBps > 0 ? ' [video stream bitrate]' : ' [overall bitrate fallback]')\n      );\n      return { outputFileObj: args.inputFileObj, outputNumber: 2, variables: args.variables };\n    }\n    args.jobLog(\n      '1080p ' + codec.toUpperCase() + ' at ' + (bpsToUse / 1000000).toFixed(1) +\n      ' Mbps >= threshold \u2014 proceeding with encode.' +\n      (videoBps > 0 ? ' [video stream bitrate]' : ' [overall bitrate fallback]')\n    );\n  }\n\n  return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n};\n"
+      },
+      "id": "av1vp9Skip1080",
+      "position": {
+        "x": 315.0,
+        "y": 35.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Reset Conform Tracker",
+      "sourceRepo": "Community",
+      "pluginName": "setFlowVariable",
+      "version": "1.0.0",
+      "inputsDB": {
+        "variable": "conform_has_happened",
+        "value": "0"
+      },
+      "id": "resetConformVar",
+      "position": {
+        "x": 382.0,
+        "y": -1100.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "sub-720p: Skip if HEVC/AV1/VP9 < 4 Mbps, else encode",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => {\n  const streams = ((args.inputFileObj.ffProbeData || {}).streams || []);\n  const format  = (args.inputFileObj.ffProbeData || {}).format || {};\n  const IMAGE_CODECS = new Set(['mjpeg', 'png', 'bmp', 'gif', 'tiff', 'webp']);\n  const videoStream  = streams.find(s => s.codec_type === 'video' && !IMAGE_CODECS.has(s.codec_name));\n\n  if (!videoStream) {\n    args.jobLog('sub720pCheck: no video stream \u2014 skipping.');\n    return { outputFileObj: args.inputFileObj, outputNumber: 2, variables: args.variables };\n  }\n\n  const codec    = (videoStream.codec_name || '').toLowerCase();\n  const overallBps = parseInt(format.bit_rate || '0', 10);\n  const videoBps   = parseInt(\n    videoStream.bit_rate ||\n    (videoStream.tags && (videoStream.tags['BPS-eng'] || videoStream.tags['BPS'])) ||\n    '0', 10\n  );\n  const bpsToUse = videoBps > 0 ? videoBps : overallBps;\n\n  const EFFICIENT = new Set(['hevc', 'av1', 'vp9']);\n  const THRESHOLD = 4000000; // 4 Mbps \u2014 already compact for sub-720p\n\n  if (EFFICIENT.has(codec) && bpsToUse < THRESHOLD) {\n    args.jobLog(\n      'sub-720p ' + codec.toUpperCase() + ' at ' + (bpsToUse / 1000000).toFixed(1) +\n      ' Mbps < 4 Mbps \u2014 already efficient, skipping re-encode.' +\n      (videoBps > 0 ? ' [video bitrate]' : ' [overall bitrate fallback]')\n    );\n    return { outputFileObj: args.inputFileObj, outputNumber: 2, variables: args.variables };\n  }\n\n  // H264/other non-efficient codec but already very low bitrate \u2014 HEVC won't compress further,\n  // and encode revert would discard subtitle cleanup. Skip encode, keep sub-cleaned output.\n  const H264_LOW_THRESHOLD = 1500000; // 1.5 Mbps\n  if (!EFFICIENT.has(codec) && bpsToUse < H264_LOW_THRESHOLD) {\n    args.jobLog(\n      'sub-720p ' + codec.toUpperCase() + ' at ' + (bpsToUse / 1000000).toFixed(1) +\n      ' Mbps \u2014 already very compressed, HEVC re-encode would not reduce size. Skipping encode.' +\n      (videoBps > 0 ? ' [video bitrate]' : ' [overall bitrate fallback]')\n    );\n    return { outputFileObj: args.inputFileObj, outputNumber: 2, variables: args.variables };\n  }\n\n  args.jobLog(\n    'sub-720p ' + codec.toUpperCase() + ' at ' + (bpsToUse / 1000000).toFixed(1) +\n    ' Mbps \u2014 proceeding with encode.' +\n    (videoBps > 0 ? ' [video bitrate]' : ' [overall bitrate fallback]')\n  );\n  return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n};\n"
+      },
+      "id": "sub720pCheck",
+      "position": {
+        "x": 120.0,
+        "y": -98.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Video is sub-720p with non-efficient codec. Encoding to HEVC.",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "sub720pEncodeComment",
+      "position": {
+        "x": 120.0,
+        "y": 143.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "VMAF Quality Gate (threshold 80, first 30s)",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => {\n  const { spawnSync } = require('child_process');\n  const fs   = require('fs');\n  const path = require('path');\n\n  const THRESHOLD  = 80;    // VMAF score minimum (0-100). Below this = revert to original.\n  const SAMPLE_SEC = '30';  // Compare first N seconds only (speed vs accuracy).\n  const VMAF_THREADS = '4';\n\n  const encodedFile = args.inputFileObj._id;\n  const refFile     = (args.variables && (args.variables.filterStreamsOrigFile || args.variables.flowOrigFile)) || '';\n\n  const pass = (msg) => {\n    args.jobLog('VMAF: ' + msg + ' \u2014 treating as PASS.');\n    return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n  };\n  const fail = (msg) => {\n    args.jobLog('VMAF FAIL: ' + msg + ' \u2014 reverting to original.');\n    return { outputFileObj: args.inputFileObj, outputNumber: 2, variables: args.variables };\n  };\n\n  if (!refFile) return pass('no reference file stored (filterStreamsOrigFile not set)');\n\n  try { fs.statSync(refFile); } catch(e) {\n    return pass('reference file not accessible: ' + path.basename(refFile));\n  }\n  try { fs.statSync(encodedFile); } catch(e) {\n    return pass('encoded file not accessible: ' + path.basename(encodedFile));\n  }\n\n  const vmafLog = '/tmp/tdarr_vmaf_' + Date.now() + '.json';\n  args.jobLog('VMAF: scoring first ' + SAMPLE_SEC + 's\u2026');\n  args.jobLog('  ref:      ' + path.basename(refFile));\n  args.jobLog('  distorted: ' + path.basename(encodedFile));\n\n  // ffmpeg: [0]=distorted [1]=reference \u2192 libvmaf\n  const result = spawnSync(args.ffmpegPath, [\n    '-t', SAMPLE_SEC, '-i', encodedFile,\n    '-t', SAMPLE_SEC, '-i', refFile,\n    '-lavfi', '[1:v][0:v]libvmaf=n_threads=' + VMAF_THREADS +\n              ':log_fmt=json:log_path=' + vmafLog,\n    '-f', 'null', '-'\n  ], { encoding: 'utf8', timeout: 300000, killSignal: 'SIGKILL' });\n\n  // libvmaf not compiled in \u2192 skip gracefully\n  if (result.stderr && /No such filter/.test(result.stderr)) {\n    return pass('libvmaf filter not available in this ffmpeg build');\n  }\n\n  if (result.status === null) return pass('VMAF probe timed out');\n\n  if (result.status !== 0) {\n    args.jobLog('VMAF: ffmpeg exited ' + result.status + ': ' + (result.stderr || '').slice(0, 300));\n    return pass('ffmpeg error during VMAF \u2014 skipping gate');\n  }\n\n  try {\n    const report = JSON.parse(fs.readFileSync(vmafLog, 'utf8'));\n    const score  = report['pooled_metrics']['vmaf']['mean'];\n    args.jobLog('VMAF score: ' + score.toFixed(2) + ' (threshold: ' + THRESHOLD + ')');\n    try { fs.unlinkSync(vmafLog); } catch(e) {}\n\n    if (score < THRESHOLD) {\n      return fail('score ' + score.toFixed(2) + ' < ' + THRESHOLD);\n    }\n    args.jobLog('VMAF PASS: ' + score.toFixed(2));\n    return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n\n  } catch(e) {\n    try { fs.unlinkSync(vmafLog); } catch(e2) {}\n    return pass('could not parse VMAF result (' + e.message + ')');\n  }\n};\n"
+      },
+      "id": "vmafGate",
+      "position": {
+        "x": 615.0,
+        "y": 640.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Disk Space Check (1080p / \u2264720p)",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => {\n  const fs   = require('fs');\n  const { execSync } = require('child_process');\n\n  try {\n    const inputSize = fs.statSync(args.inputFileObj._id).size;\n    const workDir   = args.workDir || '/tdarr-cache';\n    const { spawnSync: _spawnDf } = require('child_process');\n    const _dfResult = _spawnDf('df', ['-B1', '--output=avail', workDir], { encoding: 'utf8' });\n    const _dfLines  = (_dfResult.stdout || '').trim().split('\\n');\n    const available = parseInt(_dfLines[_dfLines.length - 1].trim(), 10);\n    const needed    = inputSize * 2; // 2\u00d7 input \u2014 covers working file + safety buffer\n\n    if (isNaN(available) || available < needed) {\n      args.jobLog(\n        'Disk space INSUFFICIENT: need ' + (needed/1073741824).toFixed(1) + ' GB, ' +\n        'have ' + (available/1073741824).toFixed(1) + ' GB free in ' + workDir + '. Skipping encode.'\n      );\n      return { outputFileObj: args.inputFileObj, outputNumber: 2, variables: args.variables };\n    }\n    args.jobLog(\n      'Disk space OK: ' + (available/1073741824).toFixed(1) + ' GB free, ' +\n      'need ' + (needed/1073741824).toFixed(1) + ' GB.'\n    );\n  } catch (e) {\n    args.jobLog('Disk space check error (proceeding): ' + e.message);\n  }\n\n  return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n};\n"
+      },
+      "id": "diskSpace_1080sub",
+      "position": {
+        "x": 510,
+        "y": 185
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Disk Space Check (1440p Efficient)",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => {\n  const fs   = require('fs');\n  const { execSync } = require('child_process');\n\n  try {\n    const inputSize = fs.statSync(args.inputFileObj._id).size;\n    const workDir   = args.workDir || '/tdarr-cache';\n    const { spawnSync: _spawnDf } = require('child_process');\n    const _dfResult = _spawnDf('df', ['-B1', '--output=avail', workDir], { encoding: 'utf8' });\n    const _dfLines  = (_dfResult.stdout || '').trim().split('\\n');\n    const available = parseInt(_dfLines[_dfLines.length - 1].trim(), 10);\n    const needed    = inputSize * 2; // 2\u00d7 input \u2014 covers working file + safety buffer\n\n    if (isNaN(available) || available < needed) {\n      args.jobLog(\n        'Disk space INSUFFICIENT: need ' + (needed/1073741824).toFixed(1) + ' GB, ' +\n        'have ' + (available/1073741824).toFixed(1) + ' GB free in ' + workDir + '. Skipping encode.'\n      );\n      return { outputFileObj: args.inputFileObj, outputNumber: 2, variables: args.variables };\n    }\n    args.jobLog(\n      'Disk space OK: ' + (available/1073741824).toFixed(1) + ' GB free, ' +\n      'need ' + (needed/1073741824).toFixed(1) + ' GB.'\n    );\n  } catch (e) {\n    args.jobLog('Disk space check error (proceeding): ' + e.message);\n  }\n\n  return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n};\n"
+      },
+      "id": "diskSpace_1440eff",
+      "position": {
+        "x": 704,
+        "y": 185
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Preserve HDR10/HLG Metadata (1440p efficient path)",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => {\n  const streams = ((args.inputFileObj.ffProbeData || {}).streams || []);\n  const IMAGE_CODECS = new Set(['mjpeg', 'png', 'bmp', 'gif', 'tiff', 'webp']);\n  const vs = streams.find(s => s.codec_type === 'video' && !IMAGE_CODECS.has(s.codec_name));\n\n  if (!vs) return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n\n  const ct  = (vs.color_transfer  || '').toLowerCase();\n  const cp  = (vs.color_primaries || '').toLowerCase();\n  const cs  = (vs.color_space     || '').toLowerCase();\n  const cr  = (vs.color_range     || '').toLowerCase();\n\n  // Detect HDR10 / HLG\n  const isHDR10 = ct === 'smpte2084'  || cp === 'bt2020';\n  const isHLG   = ct === 'arib-std-b67';\n  const isHDR   = isHDR10 || isHLG;\n\n  const cmd = (args.variables || {}).ffmpegCommand;\n  if (!cmd || !Array.isArray(cmd.streams)) {\n    args.jobLog('HDR check: ffmpegCommand not ready \u2014 skipping.');\n    return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n  }\n\n  if (!isHDR) {\n    args.jobLog('SDR content \u2014 no HDR metadata injection needed.');\n    return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n  }\n\n  args.jobLog('HDR detected: transfer=' + ct + ' primaries=' + cp + ' \u2014 injecting color metadata into encode.');\n\n  // Inject color metadata into the video stream's outputArgs\n  for (const stream of cmd.streams) {\n    if (stream.codec_type !== 'video' || IMAGE_CODECS.has(stream.codec_name)) continue;\n    // Remove pre-existing -color_* flags to prevent duplicates from encoder nodes\n    stream.outputArgs = (stream.outputArgs || []).filter(a => !String(a).startsWith('-color'));\n\n    // Add color metadata flags to preserve HDR on re-encode\n    const colorArgs = [\n      '-color_primaries', cp || 'bt2020',\n      '-color_trc',       ct || (isHLG ? 'arib-std-b67' : 'smpte2084'),\n      '-colorspace',      cs || 'bt2020nc',\n    ];\n    if (cr === 'tv' || cr === 'limited') colorArgs.push('-color_range', 'tv');\n\n    // Append to existing outputArgs (after encoder options)\n    stream.outputArgs = (stream.outputArgs || []).concat(colorArgs);\n    args.jobLog('Color args injected: ' + colorArgs.join(' '));\n  }\n\n  return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n};\n"
+      },
+      "id": "hdrMeta_1440eff",
+      "position": {
+        "x": 710.3,
+        "y": 250.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Preserve HDR10/HLG Metadata (1080p/sub-720p path)",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => {\n  const streams = ((args.inputFileObj.ffProbeData || {}).streams || []);\n  const IMAGE_CODECS = new Set(['mjpeg', 'png', 'bmp', 'gif', 'tiff', 'webp']);\n  const vs = streams.find(s => s.codec_type === 'video' && !IMAGE_CODECS.has(s.codec_name));\n\n  if (!vs) return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n\n  const ct  = (vs.color_transfer  || '').toLowerCase();\n  const cp  = (vs.color_primaries || '').toLowerCase();\n  const cs  = (vs.color_space     || '').toLowerCase();\n  const cr  = (vs.color_range     || '').toLowerCase();\n\n  // Detect HDR10 / HLG\n  const isHDR10 = ct === 'smpte2084'  || cp === 'bt2020';\n  const isHLG   = ct === 'arib-std-b67';\n  const isHDR   = isHDR10 || isHLG;\n\n  const cmd = (args.variables || {}).ffmpegCommand;\n  if (!cmd || !Array.isArray(cmd.streams)) {\n    args.jobLog('HDR check: ffmpegCommand not ready \u2014 skipping.');\n    return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n  }\n\n  if (!isHDR) {\n    args.jobLog('SDR content \u2014 no HDR metadata injection needed.');\n    return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n  }\n\n  args.jobLog('HDR detected: transfer=' + ct + ' primaries=' + cp + ' \u2014 injecting color metadata into encode.');\n\n  // Inject color metadata into the video stream's outputArgs\n  for (const stream of cmd.streams) {\n    if (stream.codec_type !== 'video' || IMAGE_CODECS.has(stream.codec_name)) continue;\n    // Remove pre-existing -color_* flags to prevent duplicates from encoder nodes\n    stream.outputArgs = (stream.outputArgs || []).filter(a => !String(a).startsWith('-color'));\n\n    // Add color metadata flags to preserve HDR on re-encode\n    const colorArgs = [\n      '-color_primaries', cp || 'bt2020',\n      '-color_trc',       ct || (isHLG ? 'arib-std-b67' : 'smpte2084'),\n      '-colorspace',      cs || 'bt2020nc',\n    ];\n    if (cr === 'tv' || cr === 'limited') colorArgs.push('-color_range', 'tv');\n\n    // Append to existing outputArgs (after encoder options)\n    stream.outputArgs = (stream.outputArgs || []).concat(colorArgs);\n    args.jobLog('Color args injected: ' + colorArgs.join(' '));\n  }\n\n  return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n};\n"
+      },
+      "id": "hdrMeta_sub1080",
+      "position": {
+        "x": 710.3,
+        "y": 250.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Store Original File Path (VMAF Reference)",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "id": "storeOrigFile",
+      "position": {
+        "x": 382.0,
+        "y": -1220.0
+      },
+      "fpEnabled": true,
+      "inputsDB": {
+        "code": "module.exports = async (args) => {\n  args.variables.flowOrigFile = args.inputFileObj._id;\n  args.jobLog('Stored original file for VMAF reference: ' + args.inputFileObj._id);\n  return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables };\n};"
+      }
+    }
+  ],
+  "flowEdges": [
+    {
+      "source": "8B_6pRd_U",
+      "sourceHandle": "1",
+      "target": "F7YfZS7C0",
+      "targetHandle": null,
+      "id": "zUhvfA3k4"
+    },
+    {
+      "source": "F7YfZS7C0",
+      "sourceHandle": "1",
+      "target": "TtKXi3Q7h",
+      "targetHandle": null,
+      "id": "-7Rs8uPZF"
+    },
+    {
+      "source": "t8zcq1B2i",
+      "sourceHandle": "1",
+      "target": "VQq0whIql",
+      "targetHandle": null,
+      "id": "1cT6w5r9D"
+    },
+    {
+      "source": "91b7IrsEc",
+      "sourceHandle": "2",
+      "target": "broG1J9Nb",
+      "targetHandle": null,
+      "id": "QCl835LrA"
+    },
+    {
+      "source": "broG1J9Nb",
+      "sourceHandle": "2",
+      "target": "zzHAnCiNc",
+      "targetHandle": null,
+      "id": "3LrduLWhf"
+    },
+    {
+      "source": "TtKXi3Q7h",
+      "sourceHandle": "1",
+      "target": "E537sdF0a",
+      "targetHandle": null,
+      "id": "hvxtgTHxB"
+    },
+    {
+      "source": "DbhMvyf_o",
+      "sourceHandle": "1",
+      "target": "5NACZYBYG",
+      "targetHandle": null,
+      "id": "W7OO3XL2_"
+    },
+    {
+      "source": "DyxabWKAn",
+      "sourceHandle": "1",
+      "target": "91b7IrsEc",
+      "targetHandle": null,
+      "id": "4XMMxJxy_"
+    },
+    {
+      "source": "scwrtORfS",
+      "sourceHandle": "1",
+      "target": "DyxabWKAn",
+      "targetHandle": null,
+      "id": "VKX9uVjRA"
+    },
+    {
+      "source": "eATE7yxrN",
+      "sourceHandle": "1",
+      "target": "DbhMvyf_o",
+      "targetHandle": null,
+      "id": "5bwSaD5cC"
+    },
+    {
+      "source": "eATE7yxrN",
+      "sourceHandle": "2",
+      "target": "X6zSixFur",
+      "targetHandle": null,
+      "id": "kz_lvNq43"
+    },
+    {
+      "source": "X6zSixFur",
+      "sourceHandle": "1",
+      "target": "VzJdQ3qvX",
+      "targetHandle": null,
+      "id": "hJ9mnzpU4"
+    },
+    {
+      "source": "ybVH-a5NL",
+      "sourceHandle": "1",
+      "target": "eATE7yxrN",
+      "targetHandle": null,
+      "id": "2TLYZsDbm"
+    },
+    {
+      "source": "joMr51cZt",
+      "sourceHandle": "2",
+      "target": "OEDHmz1Sj",
+      "targetHandle": null,
+      "id": "6baUm6Ao8"
+    },
+    {
+      "source": "joMr51cZt",
+      "sourceHandle": "3",
+      "target": "OEDHmz1Sj",
+      "targetHandle": null,
+      "id": "UyjsToGK-"
+    },
+    {
+      "source": "OEDHmz1Sj",
+      "sourceHandle": "1",
+      "target": "t8zcq1B2i",
+      "targetHandle": null,
+      "id": "Qd0t9YGVS"
+    },
+    {
+      "source": "joMr51cZt",
+      "sourceHandle": "1",
+      "target": "svc-x1Sm9",
+      "targetHandle": null,
+      "id": "rli0Mv4Jj"
+    },
+    {
+      "source": "91b7IrsEc",
+      "sourceHandle": "1",
+      "target": "A51oJC0gB",
+      "targetHandle": null,
+      "id": "z0cGIyRBO"
+    },
+    {
+      "source": "A51oJC0gB",
+      "sourceHandle": "1",
+      "target": "rzKOAWwbm",
+      "targetHandle": null,
+      "id": "7xKqjPD2r"
+    },
+    {
+      "source": "broG1J9Nb",
+      "sourceHandle": "1",
+      "target": "lxznnqDwh",
+      "targetHandle": null,
+      "id": "svYdUmZ-s"
+    },
+    {
+      "source": "lxznnqDwh",
+      "sourceHandle": "1",
+      "target": "rzKOAWwbm",
+      "targetHandle": null,
+      "id": "WEElsPem-"
+    },
+    {
+      "source": "zzHAnCiNc",
+      "sourceHandle": "1",
+      "target": "W5enX8izV",
+      "targetHandle": null,
+      "id": "GaazrPFoT"
+    },
+    {
+      "source": "W5enX8izV",
+      "sourceHandle": "1",
+      "target": "rzKOAWwbm",
+      "targetHandle": null,
+      "id": "OqfQH-_JZ"
+    },
+    {
+      "source": "zzHAnCiNc",
+      "sourceHandle": "2",
+      "target": "kAd1CKd4_",
+      "targetHandle": null,
+      "id": "3TOMm_5tq"
+    },
+    {
+      "source": "rzKOAWwbm",
+      "sourceHandle": "9",
+      "target": "tJmJ-AbFT",
+      "targetHandle": null,
+      "id": "G9HPendwQ"
+    },
+    {
+      "source": "rzKOAWwbm",
+      "sourceHandle": "8",
+      "target": "tJmJ-AbFT",
+      "targetHandle": null,
+      "id": "sEkmMHRqM"
+    },
+    {
+      "source": "rzKOAWwbm",
+      "sourceHandle": "7",
+      "target": "tJmJ-AbFT",
+      "targetHandle": null,
+      "id": "tKG3qEaAv"
+    },
+    {
+      "source": "rzKOAWwbm",
+      "sourceHandle": "6",
+      "target": "tJmJ-AbFT",
+      "targetHandle": null,
+      "id": "OZCixRgzA"
+    },
+    {
+      "source": "rzKOAWwbm",
+      "sourceHandle": "5",
+      "target": "tJmJ-AbFT",
+      "targetHandle": null,
+      "id": "igie_-o1D"
+    },
+    {
+      "source": "rzKOAWwbm",
+      "sourceHandle": "4",
+      "target": "8NcPKeayE",
+      "targetHandle": null,
+      "id": "gk77Y9d5k"
+    },
+    {
+      "source": "pxkr6_IH6",
+      "sourceHandle": "1",
+      "target": "p01GM4kKv",
+      "targetHandle": null,
+      "id": "gXcUVOpCx"
+    },
+    {
+      "source": "p01GM4kKv",
+      "sourceHandle": "1",
+      "target": "wLWblCbv4",
+      "targetHandle": null,
+      "id": "1ccbdDI1E"
+    },
+    {
+      "source": "wLWblCbv4",
+      "sourceHandle": "1",
+      "target": "_rOppxe-W",
+      "targetHandle": null,
+      "id": "VUL5II63X"
+    },
+    {
+      "source": "NmZ4vZh_W",
+      "sourceHandle": "1",
+      "target": "diskSpace_1080sub",
+      "targetHandle": null,
+      "id": "_gjsDOrJl"
+    },
+    {
+      "source": "vmm9_Gm80",
+      "sourceHandle": "1",
+      "target": "avAfifJOs",
+      "targetHandle": null,
+      "id": "qkfBZROXm"
+    },
+    {
+      "source": "vmm9_Gm80",
+      "sourceHandle": "2",
+      "target": "NmZ4vZh_W",
+      "targetHandle": null,
+      "id": "-ruNHmXUW"
+    },
+    {
+      "source": "16Mu4hJ2P",
+      "sourceHandle": "1",
+      "target": "91b7IrsEc",
+      "targetHandle": null,
+      "id": "ZrBxAapx0"
+    },
+    {
+      "source": "DDMnUCh0V",
+      "sourceHandle": "1",
+      "target": "5NACZYBYG",
+      "targetHandle": null,
+      "id": "Nu7qA-u9t"
+    },
+    {
+      "source": "16Mu4hJ2P",
+      "sourceHandle": "2",
+      "target": "DDMnUCh0V",
+      "targetHandle": null,
+      "id": "lnhxazhu-"
+    },
+    {
+      "source": "avAfifJOs",
+      "sourceHandle": "1",
+      "target": "BIHZrYl0A",
+      "targetHandle": null,
+      "id": "VU66Stc7A"
+    },
+    {
+      "source": "BIHZrYl0A",
+      "sourceHandle": "2",
+      "target": "3Mq7LhzD-",
+      "targetHandle": null,
+      "id": "GYhTRI1CZ"
+    },
+    {
+      "source": "BIHZrYl0A",
+      "sourceHandle": "1",
+      "target": "Yz5fbG9gl",
+      "targetHandle": null,
+      "id": "hcDFlGk_i"
+    },
+    {
+      "source": "Yz5fbG9gl",
+      "sourceHandle": "1",
+      "target": "A9_bNdaNZ",
+      "targetHandle": null,
+      "id": "3K4dVnZ4b"
+    },
+    {
+      "source": "3Mq7LhzD-",
+      "sourceHandle": "1",
+      "target": "A9_bNdaNZ",
+      "targetHandle": null,
+      "id": "FLmPfSj7d"
+    },
+    {
+      "source": "svc-x1Sm9",
+      "sourceHandle": "1",
+      "target": "A9_bNdaNZ",
+      "targetHandle": null,
+      "id": "cUubBRUGw"
+    },
+    {
+      "source": "VQq0whIql",
+      "sourceHandle": "1",
+      "target": "A9_bNdaNZ",
+      "targetHandle": null,
+      "id": "0AySJU9WC"
+    },
+    {
+      "source": "filterStreams1",
+      "sourceHandle": "1",
+      "target": "16Mu4hJ2P",
+      "targetHandle": null,
+      "id": "edge_filt_mkv1"
+    },
+    {
+      "source": "filterStreams1",
+      "sourceHandle": "2",
+      "target": "lowBitrate9",
+      "targetHandle": null,
+      "id": "edge_filt_mkv2"
+    },
+    {
+      "source": "pE6rU7gkW",
+      "sourceHandle": "1",
+      "target": "procCheck8",
+      "targetHandle": null,
+      "id": "r8_inp_chk"
+    },
+    {
+      "source": "procCheck8",
+      "sourceHandle": "2",
+      "target": "woKzLVsUQ",
+      "targetHandle": null,
+      "id": "r8_chk_skip"
+    },
+    {
+      "source": "delCompFiles1",
+      "sourceHandle": "1",
+      "target": "filterStreams1",
+      "targetHandle": null,
+      "id": "r9_del_lb"
+    },
+    {
+      "source": "lowBitrate9",
+      "sourceHandle": "1",
+      "target": "procAdd8",
+      "targetHandle": null,
+      "id": "r9_lb_skip"
+    },
+    {
+      "source": "lowBitrate9",
+      "sourceHandle": "2",
+      "target": "16Mu4hJ2P",
+      "targetHandle": null,
+      "id": "r9_lb_cont"
+    },
+    {
+      "source": "procAdd8",
+      "sourceHandle": "1",
+      "target": "woKzLVsUQ",
+      "targetHandle": null,
+      "id": "r8_add_reset"
+    },
+    {
+      "source": "procCheck8",
+      "sourceHandle": "1",
+      "target": "resetConformVar",
+      "targetHandle": null,
+      "id": "r16_chk_health"
+    },
+    {
+      "source": "healthCheck16",
+      "sourceHandle": "1",
+      "target": "delCompFiles1",
+      "targetHandle": null,
+      "id": "r16_health_del"
+    },
+    {
+      "source": "A9_bNdaNZ",
+      "sourceHandle": "1",
+      "target": "verifyOutput17",
+      "targetHandle": null,
+      "id": "r17_meta_verify"
+    },
+    {
+      "source": "verifyOutput17",
+      "sourceHandle": "1",
+      "target": "4fkfOyR3l",
+      "targetHandle": null,
+      "id": "r17_verify_ok"
+    },
+    {
+      "source": "verifyOutput17",
+      "sourceHandle": "2",
+      "target": "VzJdQ3qvX",
+      "targetHandle": null,
+      "id": "r17_verify_fail"
+    },
+    {
+      "source": "healthCheck16",
+      "sourceHandle": "2",
+      "target": "procAdd8",
+      "targetHandle": null,
+      "id": "r16_health_mark_skip"
+    },
+    {
+      "source": "-uTyLAudE",
+      "sourceHandle": "1",
+      "target": "libRoute21",
+      "targetHandle": null,
+      "id": "lib_comment_to_route"
+    },
+    {
+      "source": "libRoute21",
+      "sourceHandle": "1",
+      "target": "procAdd8",
+      "targetHandle": null,
+      "id": "lib_route_to_processed"
+    },
+    {
+      "source": "healthCheck16",
+      "sourceHandle": "3",
+      "target": "VzJdQ3qvX",
+      "targetHandle": null,
+      "id": "hc16_fail_edge"
+    },
+    {
+      "source": "tJmJ-AbFT",
+      "sourceHandle": "1",
+      "target": "hrBitrateCheck",
+      "targetHandle": null,
+      "id": "hr_tJmJ_to_check"
+    },
+    {
+      "source": "hrBitrateCheck",
+      "sourceHandle": "1",
+      "target": "diskSpace_1440eff",
+      "targetHandle": null,
+      "id": "hr_check_to_encode"
+    },
+    {
+      "source": "hrBitrateCheck",
+      "sourceHandle": "2",
+      "target": "BIHZrYl0A",
+      "targetHandle": null,
+      "id": "hr_check_to_skip"
+    },
+    {
+      "source": "8NcPKeayE",
+      "sourceHandle": "1",
+      "target": "av1vp9Skip1080",
+      "targetHandle": null,
+      "id": "av1_8nc_to_check"
+    },
+    {
+      "source": "av1vp9Skip1080",
+      "sourceHandle": "1",
+      "target": "vmm9_Gm80",
+      "targetHandle": null,
+      "id": "av1_to_bitrate"
+    },
+    {
+      "source": "av1vp9Skip1080",
+      "sourceHandle": "2",
+      "target": "avAfifJOs",
+      "targetHandle": null,
+      "id": "av1_to_skip"
+    },
+    {
+      "source": "resetConformVar",
+      "sourceHandle": "1",
+      "target": "storeOrigFile",
+      "targetHandle": null,
+      "id": "e_resetConform_to_store"
+    },
+    {
+      "source": "rzKOAWwbm",
+      "sourceHandle": "1",
+      "target": "sub720pCheck",
+      "targetHandle": null,
+      "id": "edge_res1_sub720p"
+    },
+    {
+      "source": "rzKOAWwbm",
+      "sourceHandle": "2",
+      "target": "sub720pCheck",
+      "targetHandle": null,
+      "id": "edge_res2_sub720p"
+    },
+    {
+      "source": "rzKOAWwbm",
+      "sourceHandle": "3",
+      "target": "sub720pCheck",
+      "targetHandle": null,
+      "id": "edge_res3_sub720p"
+    },
+    {
+      "source": "sub720pCheck",
+      "sourceHandle": "1",
+      "target": "sub720pEncodeComment",
+      "targetHandle": null,
+      "id": "edge_sub720p_comment"
+    },
+    {
+      "source": "sub720pEncodeComment",
+      "sourceHandle": "1",
+      "target": "diskSpace_1080sub",
+      "targetHandle": null,
+      "id": "edge_sub720p_beginCmd"
+    },
+    {
+      "source": "sub720pCheck",
+      "sourceHandle": "2",
+      "target": "BIHZrYl0A",
+      "targetHandle": null,
+      "id": "edge_sub720p_skip"
+    },
+    {
+      "source": "ivglZzoZv",
+      "sourceHandle": "1",
+      "target": "vmafGate",
+      "targetHandle": null,
+      "id": "edge_ivglZzoZv_to_vmaf"
+    },
+    {
+      "source": "450g167D8",
+      "sourceHandle": "1",
+      "target": "vmafGate",
+      "targetHandle": null,
+      "id": "edge_450g167D8_to_vmaf"
+    },
+    {
+      "source": "vmafGate",
+      "sourceHandle": "1",
+      "target": "joMr51cZt",
+      "targetHandle": null,
+      "id": "edge_vmaf_pass_to_compare"
+    },
+    {
+      "source": "vmafGate",
+      "sourceHandle": "2",
+      "target": "OEDHmz1Sj",
+      "targetHandle": null,
+      "id": "edge_vmaf_fail_to_revert"
+    },
+    {
+      "source": "_rOppxe-W",
+      "sourceHandle": "1",
+      "target": "ivglZzoZv",
+      "targetHandle": null,
+      "id": "bypass_removedata_1080_to_exec"
+    },
+    {
+      "source": "E537sdF0a",
+      "sourceHandle": "1",
+      "target": "450g167D8",
+      "targetHandle": null,
+      "id": "bypass_removedata_def_to_exec"
+    },
+    {
+      "source": "diskSpace_1080sub",
+      "sourceHandle": "1",
+      "target": "sJuXHGyNG",
+      "targetHandle": null,
+      "id": "diskspace_diskSpace_1080sub_to_sJuXHGyNG"
+    },
+    {
+      "source": "diskSpace_1440eff",
+      "sourceHandle": "1",
+      "target": "6LclYP06x",
+      "targetHandle": null,
+      "id": "diskspace_diskSpace_1440eff_to_6LclYP06x"
+    },
+    {
+      "source": "6LclYP06x",
+      "sourceHandle": "1",
+      "target": "hdrMeta_1440eff",
+      "targetHandle": null,
+      "id": "6LclYP06x_to_hdrMeta_1440eff"
+    },
+    {
+      "source": "hdrMeta_1440eff",
+      "sourceHandle": "1",
+      "target": "pxkr6_IH6",
+      "targetHandle": null,
+      "id": "hdrMeta_1440eff_to_pxkr6_IH6"
+    },
+    {
+      "source": "sJuXHGyNG",
+      "sourceHandle": "1",
+      "target": "hdrMeta_sub1080",
+      "targetHandle": null,
+      "id": "sJuXHGyNG_to_hdrMeta_sub1080"
+    },
+    {
+      "source": "hdrMeta_sub1080",
+      "sourceHandle": "1",
+      "target": "8B_6pRd_U",
+      "targetHandle": null,
+      "id": "hdrMeta_sub1080_to_8B_6pRd_U"
+    },
+    {
+      "source": "4fkfOyR3l",
+      "sourceHandle": "1",
+      "target": "-uTyLAudE",
+      "targetHandle": null,
+      "id": "e_replace_to_notify"
+    },
+    {
+      "source": "diskSpace_1080sub",
+      "sourceHandle": "2",
+      "target": "procAdd8",
+      "targetHandle": null,
+      "id": "e_diskSpace_1080sub_2_procAdd8"
+    },
+    {
+      "source": "diskSpace_1440eff",
+      "sourceHandle": "2",
+      "target": "procAdd8",
+      "targetHandle": null,
+      "id": "e_diskSpace_1440eff_2_procAdd8"
+    },
+    {
+      "source": "kAd1CKd4_",
+      "sourceHandle": "1",
+      "target": "rzKOAWwbm",
+      "targetHandle": null,
+      "id": "e_oldcodec_to_res"
+    },
+    {
+      "source": "storeOrigFile",
+      "sourceHandle": "1",
+      "target": "healthCheck16",
+      "targetHandle": null,
+      "id": "e_store_to_health"
+    }
+  ]
+}
